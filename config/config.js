@@ -18,5 +18,6 @@ export default defineConfig({
     dynamicImport: {
         // 按需加载时指定加载的动画
         loading: '@/components/Loading'
-    }
+    },
+    mountElementId: 'app', // 指定 react app 渲染到的 HTML 元素 id
 });
