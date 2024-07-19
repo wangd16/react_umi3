@@ -8,8 +8,8 @@ export default defineConfig({
     type: 'none', // all慢 兼容性好，node快 兼容性一般
   },
   routes: routes,
-  // 快熟刷新，可以保持组件状态，同时编辑提供调试
-  fastRefresh: {},
+  // 快速刷新，可以保持组件状态，同时编辑提供调试，删除后可实现页面同步刷新
+  // fastRefresh: {},
   devServer: {
     port: 8080, // .env 里面权限更高一些
     // https: true,// 启用https安全访问，于对应协议服务器通讯
