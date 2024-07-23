@@ -24,4 +24,7 @@ export default defineConfig({
 
   // 修改Pc端主题配置
   theme,
+  history: {
+    type: 'hash', // 将路由历史模式设为 Hash
+  },
 });

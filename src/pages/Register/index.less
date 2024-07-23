@@ -1,0 +1,23 @@
+.title {
+  background: rgb(121, 242, 157);
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.bordered(@topW:1px,@bottomW:2px) {
+  border-top: dotted @topW black;
+  border-bottom: solid @bottomW black;
+}
+
+#a1 {
+  color: #111;
+  .bordered();
+}
+
+.a2 {
+  color: red;
+  .bordered(2px, 4px);
+  border-bottom: solid 5px black; //覆盖混合
+}
