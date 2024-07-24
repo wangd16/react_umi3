@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { NavLink } from 'umi';
+import styles from './index.less';
 
 function Nav({}) {
   useEffect(() => {
@@ -8,7 +10,19 @@ function Nav({}) {
     };
   }, []);
 
-  return <div>page Nav</div>;
+  return (
+    <div className={styles.nav_content}>
+      <NavLink to="/login" activeStyle={{ color: 'red' }}>
+        登录
+      </NavLink>
+      <NavLink to="/register" activeStyle={{ color: 'red' }}>
+        注册
+      </NavLink>
+      <NavLink to="/goods" activeStyle={{ color: 'red' }}>
+        商品
+      </NavLink>
+    </div>
+  );
 }
 
 export default Nav;
