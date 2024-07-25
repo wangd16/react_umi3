@@ -1,8 +1,10 @@
 import { defineConfig } from 'umi';
-import routes from './routes.ts';
-import theme from './theme.ts';
+import routes from './routes';
+import theme from './theme';
+import proxy from './proxy';
 
 export default defineConfig({
+  proxy, // 引用反向代理的配置
   // node_modules 目录下依赖文件的编译方式
   nodeModulesTransform: {
     type: 'none', // all慢 兼容性好，node快 兼容性一般
