@@ -1,5 +1,5 @@
-import React from 'react';
-import { request } from 'umi';
+import React, { useState, useEffect, useRef } from 'react';
+import { request, useRequest } from 'umi';
 
 function PageIndex() {
   async function getGoods() {
@@ -36,16 +36,66 @@ function PageIndex() {
     console.log('🚀WYD-dev 🚝 requestLogin 🚝 data:', data);
   }
 
+  // umi mock
+  // const { data, error, loading } = useRequest('/umi/goods');
+
+  // 线上接口
+  // const { data, error, loading } = useRequest('/book/57206c3539a913ad65d35c7b');
+
+  // 手动触发 useRequest 操作
+  // const { data, error, loading, run } = useRequest({
+  //     url: '/umi/login',
+  //     method: 'POST',
+  //     data: {
+  //         username: 'admin',
+  //         password: '123456'
+  //     }
+  // }, {
+  //     manual: true,// 手动通过运行 run 触发
+  // });
+
+  // 轮询
+  let count = 1;
+  const { data, error, loading, run, mutate } = useRequest(
+    {
+      url: '/umi/list',
+      method: 'GET',
+      params: { _limit: count + 1 },
+    },
+    {
+      pollingInterval: 1000, // 轮询 一秒读一次
+      pollingWhenHidden: false, // 屏幕不可见时，站厅轮询
+      manual: true, // 手动通过运行 run 触发
+    },
+  );
+
+  function handlerRun() {
+    run();
+  }
+
+  if (error) {
+    return <div>错误信息</div>;
+  }
+  if (loading) {
+    return <div>loading...</div>;
+  }
+
   return (
     <div>
-      <h3>Page Index</h3>
-      <h4>fetch</h4>
+      <h1>Page Index</h1>
+      <h3 />
+      <h3>fetch</h3>
       <button onClick={getGoods}>获取goods数据</button>
       <button onClick={handlerLogin}>登录</button>
-
-      <h4>request</h4>
+      <hr />
+      <h3>request</h3>
       <button onClick={requestGoods}>获取goods数据</button>
       <button onClick={requestLogin}>登录</button>
+      <hr />
+      <h3>useRequest</h3>
+      <div>{JSON.stringify(data)}</div>
+      <button onClick={handlerRun}>手动触发方法 登录</button>
+      <hr />
     </div>
   );
 }

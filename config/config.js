@@ -29,4 +29,7 @@ export default defineConfig({
   history: {
     type: 'hash', // 将路由历史模式设为 Hash
   },
+  request: {
+    dataField: '', // 默认 data,若拿原始数据则直接''即可
+  },
 });

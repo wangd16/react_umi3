@@ -9,6 +9,7 @@ export default {
     // 路径替换
     pathRewrite: { '^/api': '' },
   },
+  // 线上地址
   '/book': {
     target: 'https://api.zhuishushenqi.com',
     changeOrigin: true,
