@@ -1,3 +1,4 @@
+// 多级路由配置及路由传参
 // const routes = [
 //   {
 //     path: '/',
@@ -23,6 +24,20 @@
 //   { path: '404', component: '@/pages/404' },
 // ];
 
-const routes = [{ path: '/', component: '@/pages/index.jsx' }];
+// 页面请求的路由
+// const routes1 = [{ path: '/', component: '@/pages/index.jsx' }];
+
+// dva 全局及数据及页面级数据获取路由
+const routes = [
+  {
+    path: '/',
+    component: '@/Layouts/base-layouts',
+    routes: [
+      { path: '/', component: '@/pages/index.jsx' },
+      { path: '/dev', component: '@/pages/Dev' },
+      { path: '/goods', component: '@/pages/Goods' },
+    ],
+  },
+];
 
 export default routes;

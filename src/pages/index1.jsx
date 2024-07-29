@@ -83,6 +83,19 @@ function PageIndex() {
   return (
     <div>
       <h1>Page Index</h1>
+      <h3 />
+      <h3>fetch</h3>
+      <button onClick={getGoods}>获取goods数据</button>
+      <button onClick={handlerLogin}>登录</button>
+      <hr />
+      <h3>request</h3>
+      <button onClick={requestGoods}>获取goods数据</button>
+      <button onClick={requestLogin}>登录</button>
+      <hr />
+      <h3>useRequest</h3>
+      <div>{JSON.stringify(data)}</div>
+      <button onClick={handlerRun}>手动触发方法 登录</button>
+      <hr />
     </div>
   );
 }

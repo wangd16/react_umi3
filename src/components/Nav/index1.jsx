@@ -12,10 +12,10 @@ function Nav({}) {
 
   return (
     <div className={styles.nav_content}>
-      <NavLink to="/dev" activeStyle={{ color: 'red' }}>
+      <NavLink to="/login" activeStyle={{ color: 'red' }}>
         dev
       </NavLink>
-      <NavLink to="/goods" activeStyle={{ color: 'red' }}>
+      <NavLink to="/register" activeStyle={{ color: 'red' }}>
         商品
       </NavLink>
     </div>
