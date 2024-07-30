@@ -3,8 +3,6 @@ import { connect } from 'dva';
 
 function Dev(props) {
   const { global, dispatch } = props;
-  console.log('🚀WYD-dev 🚝 Dev 🚝 props:', props);
-  console.log('🚀WYD-dev 🚝 Dev 🚝 a:', global);
 
   function handleLogin() {
     dispatch({
@@ -28,6 +26,17 @@ function Dev(props) {
     });
   }
 
+  // 登录，发送异步的请求
+  function handleAsyncLogin() {
+    dispatch({
+      type: 'global/login',
+      payload: {
+        username: 'admin',
+        password: '123456',
+      },
+    });
+  }
+
   return (
     <div>
       <h2>pages Dev</h2>
@@ -35,13 +44,15 @@ function Dev(props) {
       <h3>获取全局state</h3>
       <div>不穿参修改text:{global.text}</div>
       <div>传参修改title:{global.title}</div>
-      {global.login ? <>已登陆</> : <>未登录</>}
+      {global.login ? <>已登录</> : <>未登录</>}
       <hr />
       <button onClick={handleUpdate}>修改全局状态值，不传参</button>
       <br />
       <button onClick={handleTransfer}>修改全局状态值，传参</button>
       <br />
-      <button onClick={handleLogin}>登录</button>
+      <button onClick={handleLogin}>登录，仅修改状态</button>
+      <br />
+      <button onClick={handleAsyncLogin}>登录，发送异步请求</button>
     </div>
   );
 }

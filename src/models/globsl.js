@@ -1,5 +1,7 @@
 // 全局共用性的状态
 
+import { request } from 'umi';
+
 export default {
   namespace: 'global', // 所有models里面的namespace不能重名，可以不写则是文件名
   state: {
@@ -25,11 +27,29 @@ export default {
       };
     },
     // 登录
-    singin: (state) => {
+    singin: (state, { payload }) => {
+      console.log('🚀WYD-dev 🚝 action:', payload);
       return {
         ...state,
         login: true,
       };
+    },
+  },
+  // 处理异步函数
+  effects: {
+    // 处理登录
+    *login(action, { call, put, select }) {
+      const data = yield call(request, '/umi/login', {
+        method: 'POST',
+        data: {
+          username: action.payload.username,
+          password: action.payload.password,
+        },
+      });
+      yield put({
+        type: 'singin',
+        payload: data,
+      });
     },
   },
 };
