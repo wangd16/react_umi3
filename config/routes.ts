@@ -28,16 +28,21 @@
 // const routes1 = [{ path: '/', component: '@/pages/index.jsx' }];
 
 // dva 全局及数据及页面级数据获取路由
+// const routes = [
+//   {
+//     path: '/',
+//     component: '@/Layouts/base-layouts',
+//     routes: [
+//       { path: '/', component: '@/pages/index.jsx' },
+//       { path: '/dev', component: '@/pages/Dev' },
+//       { path: '/goods', component: '@/pages/Goods' },
+//     ],
+//   },
+// ];
+
 const routes = [
-  {
-    path: '/',
-    component: '@/Layouts/base-layouts',
-    routes: [
-      { path: '/', component: '@/pages/index.jsx' },
-      { path: '/dev', component: '@/pages/Dev' },
-      { path: '/goods', component: '@/pages/Goods' },
-    ],
-  },
+  { path: '/', component: '@/pages/index' },
+  { path: '/login', component: '@/pages/Login' },
 ];
 
 export default routes;
