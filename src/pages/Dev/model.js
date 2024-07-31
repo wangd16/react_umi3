@@ -33,4 +33,28 @@ export default {
       };
     },
   },
+  subscriptions: {
+    // 自定义函数 fn，监听浏览器地址变化
+    listenRoute({ dispatch, history }) {
+      history.listen(({ pathname, query }) => {
+        console.log(
+          '🚀WYD-dev 🚝 history.listen 🚝 pathname,query:',
+          pathname,
+          query,
+        );
+      });
+    },
+    // 自定义函数，监听浏览器窗口的变化
+    listenResize() {
+      window.onresize = function () {
+        console.log('onresize');
+      };
+    },
+    // 自定义函数，监听窗口页面的滚动
+    listenScroll() {
+      window.onscroll = function () {
+        console.log('onscroll');
+      };
+    },
+  },
 };
