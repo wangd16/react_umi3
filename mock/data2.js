@@ -2,7 +2,7 @@ export default {
   // 判断是否登录
   'GET /umi/auth': (req, res) => {
     res.send({
-      isLogin: false,
+      isLogin: true,
     });
   },
   // 支持值为Object 和 Array

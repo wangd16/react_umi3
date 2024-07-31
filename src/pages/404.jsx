@@ -1,7 +1,11 @@
 import React from 'react';
 
 function Index() {
-  return <div>Page 404</div>;
+  return (
+    <div>
+      <h2>Page 404</h2>
+    </div>
+  );
 }
 
 export default Index;

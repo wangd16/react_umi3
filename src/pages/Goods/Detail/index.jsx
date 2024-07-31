@@ -20,13 +20,12 @@ function Detail() {
 
     history.push({
       pathname: `/goods/${id}/comment`,
-      query: { a: 3 },
     });
   }
 
   return (
     <div>
-      pages Detail <h3>{id}</h3>
+      pages Goods-Detail <h3>{id}</h3>
       {/* <div>search：{search}</div> */}
       <button onClick={getComment}>编程式跳转(命令式)</button>
     </div>
