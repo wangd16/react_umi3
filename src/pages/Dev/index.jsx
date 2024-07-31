@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
+import Child from './Child';
 
 function Dev(props) {
   const { global, dispatch } = props;
@@ -53,14 +54,19 @@ function Dev(props) {
       <button onClick={handleLogin}>登录，仅修改状态</button>
       <br />
       <button onClick={handleAsyncLogin}>登录，发送异步请求</button>
+
+      <hr />
+      <Child />
     </div>
   );
 }
 // 全局 级别的数据抓取
-// export default connect(({ global) => ({ global}))(Dev);
+// export default connect(({ global }) => ({ global }))(Dev);
 
 // 页面及子模块 级别的数据抓取
 export default connect(({ global, dev, a, b }) => ({ global, dev, a, b }))(Dev);
+// 与上面的写法一致
+// export default connect((state) => ({ global: state.global, dev: state.dev, a: state.a, b: state.b }))(Dev);
 
 // ! 同时访问两个dva文件数据,通过对两个文件的namespace命名获取
 // export default connect(({ global,dev }) => ({ global,dev }))(Dev);
