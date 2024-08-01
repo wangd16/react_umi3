@@ -27,4 +27,32 @@ export default {
       });
     }
   },
+  //动态获取路由
+  'GET /umi/menus': (req, res) => {
+    res.send([
+      {
+        path: '/',
+        component: 'Layouts/base-layouts',
+        routes: [
+          { path: '/', redirect: 'index' },
+          { path: '/index', component: 'pages' },
+          {
+            path: '/goods',
+            component: 'pages/Goods',
+            routes: [
+              // { path: '/goods', component: 'pages/Goods' },
+              { path: '/goods/:id?', component: 'pages/Goods/Detail' },
+              { path: '/goods/:id/comment', component: 'pages/Goods/Comment' },
+              {
+                path: '/goods/:id/comment/:cid',
+                component: 'pages/Goods/Comment/Detail',
+              },
+              { component: 'pages/404' },
+            ],
+          },
+          { component: 'pages/404' },
+        ],
+      },
+    ]);
+  },
 };

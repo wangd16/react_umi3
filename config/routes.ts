@@ -9,7 +9,7 @@
 //             {
 //                 path: '/goods',
 //                 component: '@/Layouts/aside-layouts',
-//                 wrappers: ['@/wrappers/auth'],
+//                 wrappers: ['@/wrappers/auth'],// 路由鉴权
 //                 routes: [
 //                     { path: '/goods', component: '@/pages/Goods' },
 //                     { path: '/goods/:id', component: '@/pages/Goods/Detail' },
@@ -17,11 +17,11 @@
 //                 ],
 //             },
 //             { path: '/', redirect: '/Login' },
-//             { path: '404', component: '@/pages/404' },
+//             { path: '/404', component: '@/pages/404' },
 //         ],
 //     },
 //     { path: '/', redirect: '/Login' },
-//     { path: '404', component: '@/pages/404' },
+//     { path: '/404', component: '@/pages/404' },
 // ];
 
 // 页面请求的路由
@@ -50,28 +50,29 @@
 const routes = [
   { path: '/login', component: '@/pages/Login' },
   { path: '/register', component: '@/pages/Register' },
-  {
-    path: '/',
-    component: '@/Layouts/base-layouts',
-    routes: [
-      { path: '/', redirect: './index' },
-      { path: '/index', component: '@/pages' },
-      { path: '404', component: '@/pages/404' },
-      {
-        path: '/goods',
-        component: '@/pages/Goods',
-        routes: [
-          // { path: '/goods', component: '@/pages/Goods' },
-          { path: '/goods/:id?', component: '@/pages/Goods/Detail' },
-          { path: '/goods/:id/comment', component: '@/pages/Goods/Comment' },
-          {
-            path: '/goods/:id/comment/:cid',
-            component: '@/pages/Goods/Comment/Detail',
-          },
-        ],
-      },
-    ],
-  },
+  // {
+  //     path: '/',
+  //     component: '@/Layouts/base-layouts',
+  //     routes: [
+  //         { path: '/', redirect: './index' },
+  //         { path: '/index', component: '@/pages' },
+  //         {
+  //             path: '/goods',
+  //             component: '@/pages/Goods',
+  //             routes: [
+  //                 // { path: '/goods', component: '@/pages/Goods' },
+  //                 { path: '/goods/:id?', component: '@/pages/Goods/Detail' },
+  //                 { path: '/goods/:id/comment', component: '@/pages/Goods/Comment' },
+  //                 {
+  //                     path: '/goods/:id/comment/:cid',
+  //                     component: '@/pages/Goods/Comment/Detail',
+  //                 },
+  //                 { component: '@/pages/404' }
+  //             ],
+  //         },
+  //         { component: '@/pages/404' },
+  //     ],
+  // },
 ];
 
 export default routes;
