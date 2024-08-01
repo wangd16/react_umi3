@@ -12,10 +12,16 @@ function Nav({}) {
 
   return (
     <div className={styles.nav_content}>
-      <NavLink to="/index" activeStyle={{ color: 'red' }}>
+      <NavLink
+        to="/index"
+        activeStyle={{ color: '#1677ff', backgroundColor: '#e6f4ff' }}
+      >
         首页
       </NavLink>
-      <NavLink to="/goods" activeStyle={{ color: 'red' }}>
+      <NavLink
+        to="/goods"
+        activeStyle={{ color: '#1677ff', backgroundColor: '#e6f4ff' }}
+      >
         商品
       </NavLink>
     </div>

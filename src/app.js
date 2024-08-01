@@ -63,3 +63,20 @@ export const render = async (oldRender) => {
   }
   oldRender();
 };
+
+// 路由监听及操作（埋点统计）
+export function onRouteChange({ matchedRoutes, location, routes, action }) {
+  // 当前匹配的路由及其子路由
+  console.log('🚀WYD-dev 🚝 onRouteChange 🚝 matchedRoutes:', matchedRoutes);
+  // location 及其参数
+  // console.log('🚀WYD-dev 🚝 onRouteChange 🚝 location:', location);
+  // 路由集合
+  // console.log('🚀WYD-dev 🚝 onRouteChange 🚝 routes:', routes);
+  // 当前跳转执行的操作 push / put
+  // console.log('🚀WYD-dev 🚝 onRouteChange 🚝 action:', action);
+
+  // console.log('🚀WYD-dev 🚝 onRouteChange 🚝 获取title:', matchedRoutes[matchedRoutes.length - 1].route.title);
+
+  // 动态修改网站标题
+  document.title = matchedRoutes[matchedRoutes.length - 1].route.title || UMI3;
+}

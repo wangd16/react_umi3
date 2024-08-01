@@ -35,13 +35,18 @@ export default {
         component: 'Layouts/base-layouts',
         routes: [
           { path: '/', redirect: 'index' },
-          { path: '/index', component: 'pages' },
+          { path: '/index', title: '首页', component: 'pages' },
           {
             path: '/goods',
+            title: '商品',
             component: 'pages/Goods',
             routes: [
               // { path: '/goods', component: 'pages/Goods' },
-              { path: '/goods/:id?', component: 'pages/Goods/Detail' },
+              {
+                path: '/goods/:id?',
+                title: '具体商品',
+                component: 'pages/Goods/Detail',
+              },
               { path: '/goods/:id/comment', component: 'pages/Goods/Comment' },
               {
                 path: '/goods/:id/comment/:cid',

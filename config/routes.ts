@@ -48,8 +48,8 @@
 
 // 动态路由读取、添加
 const routes = [
-  { path: '/login', component: '@/pages/Login' },
-  { path: '/register', component: '@/pages/Register' },
+  { path: '/login', title: '登录', component: '@/pages/Login' },
+  { path: '/register', title: '注册', component: '@/pages/Register' },
   // {
   //     path: '/',
   //     component: '@/Layouts/base-layouts',
@@ -61,6 +61,7 @@ const routes = [
   //             component: '@/pages/Goods',
   //             routes: [
   //                 // { path: '/goods', component: '@/pages/Goods' },
+  //                 可选路由，默认跳转至
   //                 { path: '/goods/:id?', component: '@/pages/Goods/Detail' },
   //                 { path: '/goods/:id/comment', component: '@/pages/Goods/Comment' },
   //                 {

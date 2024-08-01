@@ -33,6 +33,7 @@ export default {
       };
     },
   },
+  // 监听路由变化
   subscriptions: {
     // 自定义函数 fn，监听浏览器地址变化
     listenRoute({ dispatch, history }) {
